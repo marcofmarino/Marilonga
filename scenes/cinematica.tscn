@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmeoussgj8vp8"]
+
+[ext_resource type="Script" path="res://assets/scripts/cinematica.gd" id="1_lesra"]
+[ext_resource type="PackedScene" uid="uid://k6jwthaff13" path="res://scenes/siameses.tscn" id="1_wxpej"]
+[ext_resource type="Texture2D" uid="uid://c4qeimovu7u66" path="res://assets/images/cinematica/00.png" id="3_jcgvc"]
+
+[sub_resource type="Animation" id="Animation_ioc6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 7.49585, 5.26028)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wvh1j"]
+resource_name = "cinematica"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5, 4, 4.5, 6, 6.5, 8, 8.5, 10, 12),
+"transitions": PackedFloat32Array(1, 2.92817, 1, 2.92817, 1, 2.92817, 1, 2.92817, 1, 2.92817, 2.92817, 1),
+"update": 0,
+"values": [50.8084, 50.8084, 48.9869, 48.9869, 42.7039, 42.7039, 47.0968, 47.0968, 80.3092, 80.3092, 36.6644, 36.6644]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5, 4, 4.5, 6, 6.5, 8, 8.5, 10, 12),
+"transitions": PackedFloat32Array(1, 2.92817, 1, 2.92817, 1, 2.92817, 1, 2.92817, 1, 2.92817, 2.92817, 1),
+"update": 0,
+"values": [Vector3(-3.08739, 9.09088, 5.26028), Vector3(-3.08739, 9.09088, 5.26028), Vector3(3.36611, 8.91834, 5.26028), Vector3(3.36611, 8.91834, 5.26028), Vector3(-3.16001, 4.40335, 5.26028), Vector3(-3.16001, 4.40335, 5.26028), Vector3(2.98222, 4.48053, 5.26028), Vector3(2.98222, 4.48053, 5.26028), Vector3(-0.176485, -2.3615, 5.26028), Vector3(-0.176485, -2.3615, 5.26028), Vector3(-4.21218, -9.079, 5.26028), Vector3(4.63997, -9.079, 5.26028)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_blr0n"]
+_data = {
+"RESET": SubResource("Animation_ioc6y"),
+"cinematica": SubResource("Animation_wvh1j")
+}
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q87ml"]
+
+[node name="Cinematica" type="Node3D"]
+script = ExtResource("1_lesra")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("3_jcgvc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.49585, 5.26028)
+far = 515.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_blr0n")
+}
+
+[node name="Siameses" parent="." instance=ExtResource("1_wxpej")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(54.1099, 0, 0, 0, 59.3094, 0, 0, 0, 6.81285, 0, 0, -25.3437)
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("NoiseTexture2D_q87ml")
+
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

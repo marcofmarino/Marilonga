@@ -1,0 +1,198 @@
+[gd_scene load_steps=20 format=3 uid="uid://cc3nmc2fbk8rc"]
+
+[ext_resource type="Script" path="res://assets/scripts/GUI.gd" id="1_ah8ph"]
+[ext_resource type="Texture2D" uid="uid://c2tphdh00j4ti" path="res://assets/images/1_vida_0.png" id="2_1rnj5"]
+[ext_resource type="Texture2D" uid="uid://coprwvacrpq2k" path="res://assets/images/1_vida_1.png" id="3_5v0rb"]
+[ext_resource type="Texture2D" uid="uid://cppcod0dn7blc" path="res://assets/images/3_vidas_0.png" id="4_6f8me"]
+[ext_resource type="Texture2D" uid="uid://bsd4aaqyx3efl" path="res://assets/images/1_vida_2.png" id="4_ct2pl"]
+[ext_resource type="Texture2D" uid="uid://bc2y4ue4dlce3" path="res://assets/images/1_vida_3.png" id="5_edkkt"]
+[ext_resource type="Texture2D" uid="uid://bm2yraahfl33l" path="res://assets/images/3_vidas_1.png" id="5_r27wc"]
+[ext_resource type="Texture2D" uid="uid://b7eavq6uoagfb" path="res://assets/images/2_vidas_0.png" id="6_5kosg"]
+[ext_resource type="Texture2D" uid="uid://b7jir4cncrqx3" path="res://assets/images/3_vidas_2.png" id="6_o7s24"]
+[ext_resource type="Texture2D" uid="uid://73wdghr0ak0e" path="res://assets/images/2_vidas_1.png" id="7_e4wi8"]
+[ext_resource type="Texture2D" uid="uid://cx2323m3sda7c" path="res://assets/images/3_vidas_3.png" id="7_tgai6"]
+[ext_resource type="Texture2D" uid="uid://bub2wfronjdyp" path="res://assets/images/2_vidas_2.png" id="8_0yjk8"]
+[ext_resource type="Texture2D" uid="uid://dvv8ampbh1y0v" path="res://assets/images/2_vidas_3.png" id="9_ewem4"]
+[ext_resource type="Texture2D" uid="uid://dw04ayq1302mh" path="res://assets/images/under.png" id="14_rr1m5"]
+[ext_resource type="Texture2D" uid="uid://dm4fuw5ivjk6s" path="res://assets/images/over.png" id="15_xn8b1"]
+[ext_resource type="Texture2D" uid="uid://qov38gcd5h2h" path="res://assets/images/progress_0.png" id="16_nkh6u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4kjl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7drk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1rnj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5v0rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ct2pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_edkkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_edkkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ct2pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5v0rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1rnj5")
+}],
+"loop": true,
+"name": &"1_vida",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5kosg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e4wi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0yjk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ewem4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ewem4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0yjk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e4wi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5kosg")
+}],
+"loop": true,
+"name": &"2_vidas",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6f8me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r27wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o7s24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tgai6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tgai6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o7s24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r27wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6f8me")
+}],
+"loop": true,
+"name": &"3_vidas",
+"speed": 8.0
+}]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_le7iw"]
+speed_scale = 8.0
+frame_0/texture = ExtResource("16_nkh6u")
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_ah8ph")
+
+[node name="viditas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margen" type="MarginContainer" parent="viditas"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control2" type="Control" parent="viditas/Margen"]
+custom_minimum_size = Vector2(118.135, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Container" type="Container" parent="viditas/Margen/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 0.000495911
+offset_top = 35.095
+offset_right = 0.000495911
+offset_bottom = 35.095
+grow_horizontal = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="viditas/Margen/Control2/Container"]
+material = SubResource("ShaderMaterial_o4kjl")
+position = Vector2(22.932, 91.905)
+sprite_frames = SubResource("SpriteFrames_d7drk")
+animation = &"3_vidas"
+frame_progress = 0.10863
+
+[node name="contenedorvidas" type="HBoxContainer" parent="viditas/Margen"]
+visible = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="vida1" type="TextureRect" parent="viditas/Margen/contenedorvidas"]
+layout_mode = 2
+
+[node name="vida2" type="TextureRect" parent="viditas/Margen/contenedorvidas"]
+layout_mode = 2
+
+[node name="vida3" type="TextureRect" parent="viditas/Margen/contenedorvidas"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="viditas/Margen"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="viditas/Margen/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 30.0
+value = 20.0
+texture_under = ExtResource("14_rr1m5")
+texture_over = ExtResource("15_xn8b1")
+texture_progress = SubResource("AnimatedTexture_le7iw")
+texture_progress_offset = Vector2(3.2, 0.04)

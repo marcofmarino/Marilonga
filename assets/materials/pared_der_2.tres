@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dunmdrkb8yl4k"]
+
+[ext_resource type="Texture2D" uid="uid://ccucrn6ycfpuu" path="res://assets/images/pared_derecha/pared_der_3.png" id="1_84cku"]
+
+[resource]
+albedo_texture = ExtResource("1_84cku")

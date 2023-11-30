@@ -1,0 +1,789 @@
+[gd_scene load_steps=36 format=3 uid="uid://dyxwhete18sg8"]
+
+[ext_resource type="PackedScene" uid="uid://k6jwthaff13" path="res://scenes/siameses.tscn" id="1_cubop"]
+[ext_resource type="Script" path="res://assets/scripts/nivel.gd" id="1_kg250"]
+[ext_resource type="Shader" path="res://assets/shaders/gui.gdshader" id="3_hq5f5"]
+[ext_resource type="PackedScene" uid="uid://cc3nmc2fbk8rc" path="res://scenes/gui.tscn" id="4_dou72"]
+[ext_resource type="Material" uid="uid://cmh26k4yh2w7x" path="res://assets/materials/pared_izq_byn.tres" id="4_dters"]
+[ext_resource type="Material" uid="uid://cx8d2od72vnep" path="res://assets/materials/piso_byn.tres" id="5_i36nr"]
+[ext_resource type="Material" uid="uid://clowpc248wwax" path="res://assets/materials/pared_der_byn.tres" id="6_fa734"]
+[ext_resource type="Material" uid="uid://bxxr4k8jv8pt0" path="res://assets/materials/techo_byn.tres" id="7_giw38"]
+[ext_resource type="PackedScene" uid="uid://b6dhnu28yh17m" path="res://scenes/marilyn.tscn" id="8_cgotk"]
+[ext_resource type="Material" uid="uid://b7h7q80qpoxig" path="res://assets/materials/fondo_byn.tres" id="8_hkbxg"]
+[ext_resource type="Texture2D" uid="uid://cwmwkniur3at0" path="res://assets/images/objetos/gabinete_0.png" id="10_4m36l"]
+[ext_resource type="Texture2D" uid="uid://cwsi607rjx1b4" path="res://assets/images/objetos/planta_0.png" id="11_8346l"]
+[ext_resource type="Texture2D" uid="uid://cb033l2vtw8ff" path="res://assets/images/objetos/gabinete_1.png" id="11_kp1kk"]
+[ext_resource type="Texture2D" uid="uid://f7foiunneilx" path="res://assets/images/objetos/alfombra_0.png" id="12_ock0h"]
+[ext_resource type="Texture2D" uid="uid://byg6g7wd3otk7" path="res://assets/images/objetos/alfombra_1.png" id="13_nhguw"]
+[ext_resource type="Texture2D" uid="uid://cau37x4h0c5bu" path="res://assets/images/objetos/planta_1.png" id="14_fn7f3"]
+[ext_resource type="Texture2D" uid="uid://dewsfupdfemlu" path="res://assets/images/objetos/pantalla_rota_0.png" id="16_7xy04"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w57fk"]
+shader = ExtResource("3_hq5f5")
+shader_parameter/range = 0.01
+shader_parameter/noiseQuality = 235.0
+shader_parameter/noiseIntensity = 0.002
+shader_parameter/offsetIntensity = 0.003
+shader_parameter/colorOffsetIntensity = 0.3
+
+[sub_resource type="CameraTexture" id="CameraTexture_qaxdd"]
+
+[sub_resource type="Environment" id="Environment_ru8kb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xj8ib"]
+material = ExtResource("4_dters")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ycmfi"]
+material = ExtResource("5_i36nr")
+size = Vector2(11, 11)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r1j1x"]
+material = ExtResource("6_fa734")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kigln"]
+material = ExtResource("7_giw38")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1xtqa"]
+material = ExtResource("8_hkbxg")
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hx4p"]
+size = Vector3(9.41675, 6.61467, 1)
+
+[sub_resource type="Animation" id="Animation_xgl33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gabinete:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gabinete:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.21387, 1.29885, -9.50012)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gabinete:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.253841)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gabinete:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_4m36l")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Monitor/Sprite3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.19959, 2.72736, -9.87601)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Monitor/Sprite3D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Siameses:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../GUI:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_po6wi"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gabinete:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_4m36l"), ExtResource("11_kp1kk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gabinete:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.39483, 1.49165, -9.50012), Vector3(-0.0896711, 0.867769, -9.76572)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gabinete:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.132924), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Monitor/Sprite3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.10442, 2.66463, -9.87601), Vector3(-1.86848, 0.773653, -9.87601), Vector3(-2.43033, 0.733768, -9.87601)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Monitor/Sprite3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.109923), Vector3(0, 0, -0.109923), Vector3(0, 0, 0.413484)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Siameses:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../GUI:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2chr6"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gabinete:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gabinete:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.21387, 1.29885, -9.50012), Vector3(1.5758, 1.68445, -9.50012), Vector3(1.20132, 2.02042, -9.50012), Vector3(0.792552, 1.84424, -9.50012)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gabinete:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.253841), Vector3(0, 0, -0.0120078), Vector3(0, 0, 0.289696), Vector3(0, 0, -0.203398)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Monitor/Sprite3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.19959, 2.72736, -9.87601), Vector3(-1.62652, 2.96653, -9.87601), Vector3(-0.922473, 2.99556, -9.87601), Vector3(-0.650606, 2.36557, -9.87601)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Monitor/Sprite3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.399576), Vector3(0, 0, 0.115804), Vector3(0, 0, -0.634038)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmv64"]
+_data = {
+"RESET": SubResource("Animation_xgl33"),
+"fall": SubResource("Animation_po6wi"),
+"idle": SubResource("Animation_2chr6")
+}
+
+[sub_resource type="Animation" id="Animation_xa6ib"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.472513, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.92913, 1.77727, -5.14911)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Alfombra/Sprite3D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ock0h")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Alfombra/Sprite3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.7, 0.7, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_8346l")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../GlitchNode/GlitchTexture:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_52gm6"]
+resource_name = "fall"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.92903, 1.69539, -5.14902), Vector3(-6.5894, -1.14109, -4.44807)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.472879, 0.18326), Vector3(0, 0.472984, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Alfombra/Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.7, 0.7, 0.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Alfombra/Sprite3D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_nhguw")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_8346l"), ExtResource("14_fn7f3")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../GlitchNode/GlitchTexture:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_1rofs"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.472513, 0), Vector3(0, 0.472984, 0.235619), Vector3(0, 0.472513, 0), Vector3(0, 0.472984, -0.340339)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.92913, 1.77727, -5.14911), Vector3(-2.929, 1.672, -5.149), Vector3(-2.92913, 1.77727, -5.14911), Vector3(-2.929, 1.892, -5.149)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Alfombra/Sprite3D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ock0h")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Alfombra/Sprite3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.7, 0.7, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_8346l")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asbkv"]
+_data = {
+"RESET": SubResource("Animation_xa6ib"),
+"fall": SubResource("Animation_52gm6"),
+"idle": SubResource("Animation_1rofs")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nu5rr"]
+size = Vector3(9.41051, 8.3734, 1)
+
+[node name="Nivel" type="Node3D"]
+script = ExtResource("1_kg250")
+
+[node name="Luces" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 0.88298, 0.46941, 0, -0.46941, 0.88298, 0, 2.22157, 0)
+layers = 11
+
+[node name="Lampara" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201558, 4.18556, -5.07263)
+layers = 11
+light_energy = 3.167
+omni_range = 11.3862
+
+[node name="Siameses" parent="." instance=ExtResource("1_cubop")]
+transform = Transform3D(1, -0.000387036, 0.000515066, 0.000386837, 1, 0.00034976, -0.000515216, -0.000349539, 1, 0, 1.99159, 3.6807)
+
+[node name="RaySiames1" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000687599, 1.99277, 1.07154)
+target_position = Vector3(0, 0, -20)
+collision_mask = 33
+collide_with_areas = true
+
+[node name="RaySiames2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000687599, 1.99277, 1.07154)
+target_position = Vector3(0, 0, -20)
+collision_mask = 33
+collide_with_areas = true
+
+[node name="GlitchNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.77469)
+
+[node name="GlitchTimer" type="Timer" parent="GlitchNode"]
+wait_time = 0.5
+one_shot = true
+
+[node name="GlitchTexture" type="TextureRect" parent="GlitchNode"]
+visibility_layer = 4
+material = SubResource("ShaderMaterial_w57fk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CameraTexture_qaxdd")
+
+[node name="CamaraPrincipal" type="Camera3D" parent="."]
+transform = Transform3D(1, 3.59027e-06, -1.38466e-05, -3.59041e-06, 1, -9.99985e-06, 1.38466e-05, 9.9999e-06, 1, -0.000687599, 1.99277, 1.13953)
+cull_mask = 1048565
+environment = SubResource("Environment_ru8kb")
+size = 4.35101
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CamaraPrincipal"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport2" type="SubViewport" parent="CamaraPrincipal/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4294966280
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CamaraPrincipal/SubViewportContainer/SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000687599, 1.99277, 1.13953)
+cull_mask = 1047560
+
+[node name="SubViewport" type="SubViewport" parent="CamaraPrincipal/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="CrosshairCam" type="Camera3D" parent="CamaraPrincipal/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000687599, 1.99277, 1.13953)
+cull_mask = 1047558
+fov = 73.125
+
+[node name="Oficina" type="Node" parent="."]
+
+[node name="ParedIzq" type="MeshInstance3D" parent="Oficina"]
+transform = Transform3D(-1.94081e-07, 0.698582, 0, 1.94081e-07, 1.33477e-15, -2.87818, -4.44005, -3.0536e-08, -1.25809e-07, -5.11716, 2.82297, -5.61216)
+sorting_use_aabb_center = false
+mesh = SubResource("PlaneMesh_xj8ib")
+
+[node name="PisoFinal" type="MeshInstance3D" parent="Oficina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.829195, 0.0589067, 0, -5.64993)
+mesh = SubResource("PlaneMesh_ycmfi")
+
+[node name="ParedDer" type="MeshInstance3D" parent="Oficina"]
+transform = Transform3D(-1.98247e-07, -0.99492, 1.282e-07, 0, -4.34893e-08, -2.93288, 4.53537, -4.34893e-08, 5.60382e-15, 5.36026, 3.00833, -5.74152)
+material_override = ExtResource("6_fa734")
+mesh = SubResource("PlaneMesh_r1j1x")
+
+[node name="Techo" type="MeshInstance3D" parent="Oficina"]
+transform = Transform3D(-5.41781, 1.49295e-07, -7.63794e-07, -8.18066e-07, -0.988737, -3.81897e-07, -9.47279e-07, -8.64381e-08, 4.36839, 0.169836, 5.71828, -5.60164)
+mesh = SubResource("PlaneMesh_kigln")
+
+[node name="Fondo" type="MeshInstance3D" parent="Oficina"]
+transform = Transform3D(5.30444, 0, 0, 0, 3.01859, 0, 0, 0, 1, 0.16724, 2.85055, -9.96738)
+mesh = SubResource("PlaneMesh_1xtqa")
+
+[node name="GUI" parent="." instance=ExtResource("4_dou72")]
+
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08182, -9.129)
+
+[node name="Spawn1" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Spawn7" type="Marker3D" parent="Spawns"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -3.53752, 2, 0)
+
+[node name="Spawn8" type="Marker3D" parent="Spawns"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -3.52409, 4, 0)
+
+[node name="Spawn2" type="Marker3D" parent="Spawns"]
+
+[node name="Spawn6" type="Marker3D" parent="Spawns"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 3.02073e-08, 3.65447, 0)
+
+[node name="Spawn3" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Spawn4" type="Marker3D" parent="Spawns"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.50852, 2, 0)
+
+[node name="Spawn5" type="Marker3D" parent="Spawns"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.48117, 4, 0)
+
+[node name="TimerSpawn" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="ObjetivoMarilyn" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12457, 0.0721009)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjetivoMarilyn"]
+shape = SubResource("BoxShape3D_4hx4p")
+
+[node name="Decoracion" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12707, 0, 0)
+
+[node name="Gabinete" type="Sprite3D" parent="Decoracion"]
+transform = Transform3D(0.193591, 0.0502248, 0, -0.0502248, 0.193591, 0, 0, 0, 0.2, 1.21387, 1.29885, -9.50012)
+texture_filter = 2
+texture = ExtResource("10_4m36l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoracion/Gabinete"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_nmv64")
+}
+
+[node name="Planta" type="Node3D" parent="Decoracion"]
+transform = Transform3D(0.954067, 0, 0, 0, 0.954067, 0, 0, 0, 0.954067, 0.52754, 1.46553, 0.331201)
+
+[node name="Planta" type="Sprite3D" parent="Decoracion/Planta"]
+transform = Transform3D(0.0890427, 0, 0.0455125, 0, 0.1, 0, -0.0455125, 0, 0.0890427, -2.92913, 1.77727, -5.14911)
+offset = Vector2(0, 0.455)
+texture_filter = 2
+texture = ExtResource("11_8346l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoracion/Planta/Planta"]
+libraries = {
+"": SubResource("AnimationLibrary_asbkv")
+}
+
+[node name="Alfombra" type="Node3D" parent="Decoracion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.168065)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/Alfombra"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.00254, 0.0322123, -5.32595)
+axis = 1
+texture = ExtResource("12_ock0h")
+
+[node name="LibroRojo" type="Node3D" parent="Decoracion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80994, 3.42828, -2.75139)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/LibroRojo"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="LibroVerde" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/LibroVerde"]
+
+[node name="LibroAzul" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/LibroAzul"]
+
+[node name="Silla" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/Silla"]
+
+[node name="Lampara" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/Lampara"]
+
+[node name="Monitor" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/Monitor"]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, -1.19959, 2.72736, -9.87601)
+texture = ExtResource("16_7xy04")
+
+[node name="Cuadro" type="Node3D" parent="Decoracion"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoracion/Cuadro"]
+
+[node name="Marilyns" type="Node3D" parent="."]
+
+[node name="Marilyn" parent="Marilyns" instance=ExtResource("8_cgotk")]
+transform = Transform3D(0.94409, 0, 0, 0, 0.94409, 0, 0, 0, 0.94409, -3, 1.4412, -9.129)
+color_propio = "color_0"
+speed = 0.0
+estado = "bonus"
+
+[node name="Marilyn2" parent="Marilyns" instance=ExtResource("8_cgotk")]
+transform = Transform3D(-4.12675e-08, -0.94409, 0, 0.94409, -4.12675e-08, 0, 0, 0, 0.94409, 3.92864, 4.75, -9.129)
+color_propio = "color_2"
+speed = 0.0
+estado = "bonus"
+
+[node name="BonusTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ObjetivoBonus" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12848, 0)
+collision_layer = 64
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjetivoBonus"]
+shape = SubResource("BoxShape3D_nu5rr")
+
+[node name="Sustractil" type="Node3D" parent="."]
+
+[node name="TimerGanar" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="perder_vida" from="." to="GUI" method="_on_perder_vida"]
+[connection signal="perder_vida" from="Siameses" to="GUI" method="_on_siameses_perder_vida"]
+[connection signal="sustractil_efectuado" from="Siameses" to="." method="_on_siameses_sustractil_efectuado"]
+[connection signal="timeout" from="GlitchNode/GlitchTimer" to="." method="_on_glitch_timer_timeout"]
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
+[connection signal="area_entered" from="ObjetivoMarilyn" to="." method="_on_objetivo_marilyn_area_entered"]
+[connection signal="timeout" from="BonusTimer" to="." method="_on_bonus_timer_timeout"]
+[connection signal="area_entered" from="ObjetivoBonus" to="." method="_on_objetivo_bonus_area_entered"]
+[connection signal="timeout" from="TimerGanar" to="." method="_on_timer_ganar_timeout"]

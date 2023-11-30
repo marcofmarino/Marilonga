@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://chv0lpofl7y5k"]
+
+[ext_resource type="Script" path="res://assets/scripts/perder_ganar.gd" id="1_ler8t"]
+[ext_resource type="Texture2D" uid="uid://dme7e73kqn6dy" path="res://assets/images/victoria/victoria_0.png" id="2_2po1h"]
+[ext_resource type="PackedScene" uid="uid://k6jwthaff13" path="res://scenes/siameses.tscn" id="2_i0nfe"]
+
+[sub_resource type="Animation" id="Animation_sujms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 35.5612, 10.358)]
+}
+
+[sub_resource type="Animation" id="Animation_7ocla"]
+resource_name = "ganar"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2, 3, 3.5, 4.5, 5, 6, 6.5, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 35.5612, 10.358), Vector3(0, 35.5612, 10.358), Vector3(0, 21.4751, 10.358), Vector3(0, 21.4751, 10.358), Vector3(0, 7.5842, 10.358), Vector3(0, 7.5842, 10.358), Vector3(0, -6.78615, 10.358), Vector3(0, -6.78615, 10.358), Vector3(0, -21.3691, 10.358), Vector3(0, -21.3691, 10.358), Vector3(0, -34.5927, 10.358), Vector3(0, -34.5927, 10.358)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1olqi"]
+_data = {
+"RESET": SubResource("Animation_sujms"),
+"ganar": SubResource("Animation_7ocla")
+}
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r11rq"]
+
+[node name="Ganar" type="Node3D"]
+script = ExtResource("1_ler8t")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_2po1h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.5612, 10.358)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_1olqi")
+}
+
+[node name="Siameses" parent="." instance=ExtResource("2_i0nfe")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(54.1099, 0, 0, 0, 59.3094, 0, 0, 0, 6.81285, 0, 0, -25.3437)
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("NoiseTexture2D_r11rq")
+
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

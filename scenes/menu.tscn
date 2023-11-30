@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0h43acm2l6nd"]
+
+[ext_resource type="Script" path="res://assets/scripts/menu.gd" id="1_n6c8d"]
+[ext_resource type="PackedScene" uid="uid://k6jwthaff13" path="res://scenes/siameses.tscn" id="2_4r083"]
+[ext_resource type="Texture2D" uid="uid://b5b03nl4nmhy1" path="res://assets/images/menu_principal.png" id="3_jqiq2"]
+[ext_resource type="Texture2D" uid="uid://b1kg5emywwos1" path="res://assets/images/mano_1.png" id="4_bstfx"]
+[ext_resource type="Texture2D" uid="uid://8i6benbsmafw" path="res://assets/images/mano_2.png" id="5_jyuyb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2y5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bstfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jyuyb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_n6c8d")
+
+[node name="Siameses" parent="." instance=ExtResource("2_4r083")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_jqiq2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
+position = Vector2(496, 389)
+sprite_frames = SubResource("SpriteFrames_y2y5y")
+frame_progress = 0.497796
+
+[connection signal="sustractil_efectuado" from="Siameses" to="." method="_on_siameses_sustractil_efectuado"]

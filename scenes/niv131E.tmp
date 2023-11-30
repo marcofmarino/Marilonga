@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxwhete18sg8"]
+
+[ext_resource type="PackedScene" uid="uid://k6jwthaff13" path="res://scenes/siameses.tscn" id="1_cubop"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nhu5b"]
+size = Vector2(8, 8)
+
+[node name="Nivel" type="Node3D"]
+
+[node name="Siameses" parent="." instance=ExtResource("1_cubop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515082, 0.32707)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.54564)
+mesh = SubResource("PlaneMesh_nhu5b")
+
+[node name="CamaraPrincipal" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603345, 1.18348)
+cull_mask = 1048573
+size = 4.35101
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CamaraPrincipal"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CamaraPrincipal/SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="CrosshairCam" type="Camera3D" parent="CamaraPrincipal/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603345, 1.18348)
+cull_mask = 1047554
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.88298, 0.46941, 0, -0.46941, 0.88298, 0, 2.22157, 0)

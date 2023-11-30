@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmgrx5bbenck8"]
+
+[ext_resource type="Texture2D" uid="uid://rs0h1e152mxu" path="res://assets/images/piso.png" id="1_lcf3b"]
+
+[resource]
+albedo_color = Color(0.984314, 0.964706, 0.960784, 1)
+albedo_texture = ExtResource("1_lcf3b")
