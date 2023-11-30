@@ -101,7 +101,7 @@ func _physics_process(_delta):
 	if GLOBAL.puntaje > 20 and nivel == 1:
 		nivel+=1
 		cant_marilyns = 4
-		$Decoracion/Planta/Planta.layers = 4
+		#$Decoracion/Planta/Planta.layers = 4
 		$Decoracion/Planta/Planta/AnimationPlayer.current_animation = "fall"
 		$TimerSpawn.wait_time = 2.5
 		$Oficina/ParedDer.material_override = pared_der_1
